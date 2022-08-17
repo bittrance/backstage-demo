@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backstage:
+    image: ghcr.io/backstage/backstage:latest
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: oiPoeyoDBjzvJ811pZMO
+    ports:
+      - '127.0.0.1:7007:7007'
+    volumes:
+      - ./app-config.production.yaml:/app/app-config.production.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: oiPoeyoDBjzvJ811pZMO

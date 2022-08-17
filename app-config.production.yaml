@@ -1,0 +1,28 @@
+app:
+  baseUrl: http://localhost:7007
+backend:
+  baseUrl: http://localhost:7007
+  listen:
+    port: 7007
+    host: 0.0.0.0
+  database:
+    client: pg
+    connection:
+      host: ${POSTGRES_HOST}
+      port: ${POSTGRES_PORT}
+      user: ${POSTGRES_USER}
+      password: ${POSTGRES_PASSWORD}
+techdocs:
+  builder: local
+  generator:
+    runIn: local
+  publisher:
+    type: local
+catalog:
+  rules:
+    - allow: [Component, System, API, Resource, Location, Domain]
+  locations:
+    - type: url
+      target: https://github.com/bittrance/url-shortener/tree/main/catalog-info.yaml
+      rules:
+        - allow: [API]
